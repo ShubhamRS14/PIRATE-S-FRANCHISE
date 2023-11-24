@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+		
+	<title>
+		Build a Survey Form using HTML and CSS
+	</title>
+
+	<style>
+
+		/* Styling the Body element i.e. Color, 
+		Font, Alignment */ 
+		body {
+			background-image: url("homebg1.jpg");
+			background-position: center;
+			background-size: cover;
+			position:relative;
+			background-color: #e0f808;
+			font-family: Verdana;
+			text-align: center;
+			font-family: rockwell;
+
+		}
+		h1{
+			text-align: center;
+            color: rgb(13, 38, 228);
+            animation: glow 10s ease-in-out infinite alternate, move 1s linear infinite alternate;
+            text-shadow: 0 0 10px #7ad40b, 0 0 20px #09db91, 0 0 30px #12e112;
+		}
+
+		/* Styling the Form (Color, Padding, Shadow) */
+		form {
+			background-color: rgba(255, 255, 255, 0.5); /* Set the background color with opacity */
+			max-width: 500px;
+			margin: 50px auto;
+			padding: 30px 20px;
+			box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+		}
+
+		/* Styling form-control Class */
+		.form-control {
+			text-align: left;
+			margin-bottom: 25px;
+		}
+
+		/* Styling form-control Label */ 
+		.form-control label {
+			display: block;
+			margin-bottom: 10px;
+			color:rgb(25, 25, 40);
+		}
+
+		/* Styling form-control input, 
+		select, textarea */
+		.form-control input,
+		.form-control select,
+		.form-control textarea {
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			padding: 10px;
+			display: block;
+			width: 95%;
+			color:	rgb(255, 0, 0);
+		}
+
+		/* Styling form-control Radio 
+		button and Checkbox */
+		.form-control input[type="radio"],
+		.form-control input[type="checkbox"] {
+			display: inline-block;
+			width: auto;
+		}
+
+		/* Styling Button */
+		button {
+			background-color: #c45e05;
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			font-size: 21px;
+			display: block;
+			width: 100%;
+			margin-top: 50px;
+			margin-bottom: 20px;
+		}
+		 /* Styles for the popup overlay */
+		 .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        /* Styles for the popup box */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        /* Style for the close button in the popup */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+			background-color: #12e112;
+			color:indigo;
+        }
+		.close-btn:hover{
+			transition: 1s ease;
+		}
+		
+		.form-control{
+			color:rgb(10, 218, 233), 100);
+		}
+		.form{
+			color:darkmagenta;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Franchise's Feedback/Suggestion Form</h1>
+
+	<!-- Create Form -->
+	<form id="form" action="thankyou.html" method="POST">
+
+		<!-- Details -->
+		<div class="form-control">
+			<label for="name" id="label-name">
+				Name
+			</label>
+
+			<!-- Input Type Text -->
+			<input type="text"
+				id="name"
+				placeholder="Enter your name" />
+		</div>
+
+		<div class="form-control">
+			<label for="email" id="label-email">
+				Email
+			</label>
+
+			<!-- Input Type Email-->
+			<input type="email"
+				id="email"
+				placeholder="Enter your email" />
+		</div>
+
+		<div class="form-control">
+			<label for="age" id="label-age">
+				Age
+			</label>
+
+			<!-- Input Type Text -->
+			<input type="text"
+				id="age"
+				placeholder="Enter your age" />
+		</div>
+
+		<div class="form-control">
+			<!--<label for="role" id="label-role">
+				Which option best describes you?
+			</label>
+			
+				
+			<select name="role" id="role">
+				<option value="Captain">Captain</option>
+				<option value="Vice-Captain">Vice-Captain</option>
+				<option value="Crew Member">Crew Member</option>
+                <option value="Staff">Staff</option>
+				<option value="other">Other</option>
+			</select>
+		-->
+		</div>
+
+		<div class="form-control">
+			<label>
+				Would you recommend Franchise 
+				to a friend?
+			</label>
+
+			<!-- Input Type Radio Button -->
+			<label for="recommed-1">
+				<input type="radio"
+					id="recommed-1"
+					name="recommed">Yes</input>
+			</label>
+			<label for="recommed-2">
+				<input type="radio"
+					id="recommed-2"
+					name="recommed">No</input>
+			</label>
+			<label for="recommed-3">
+				<input type="radio"
+					id="recommed-3"
+					name="recommed">Maybe</input>
+			</label>
+		</div>
+
+		<div class="form-control">
+			<label>Movies that you liked the most 
+				<small>(Check all that apply)</small>
+			</label>
+			<!-- Input Type Checkbox -->
+			<label for="inp-1">
+				<input type="checkbox"
+					name="inp">Pirates of the Carribean The Curse of Black Pearl</input></label>
+			<label for="inp-2">
+				<input type="checkbox"
+					name="inp">Pirates of the Carribean Dead Man's Chest</input></label>
+			<label for="inp-3">
+				<input type="checkbox"
+					name="inp">Pirates of the Carribean At World's End</input></label>
+			<label for="inp-4">
+				<input type="checkbox"
+					name="inp">Pirates of the Carribean Salazar's Revenge</input></label>
+			<label for="inp-5">
+				<input type="checkbox"
+					name="inp">Pirates of the Carribean The Strangers's Tide</input></label>
+			
+		</div>
+
+		<div class="form-control">
+			<label for="comment">
+				Any comments or suggestions
+			</label>
+
+			<!-- multi-line text input control -->
+			<textarea name="comment" id="comment"
+				placeholder="Enter your comment here">
+			</textarea>
+		</div>
+
+		<!-- Multi-line Text Input Control -->
+       
+		<button type="button" value="submit" onclick="openPopup()">Submit</button>
+    </form>
+
+    <!-- Popup overlay and content -->
+    <div id="popupOverlay" class="overlay">
+        <div class="popup">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <p>Thank you for your suggestions. Your response has been recorded.</p>
+        </div>
+    </div>
+
+    <script>
+        function openPopup() {
+            // Show the overlay and popup
+            document.getElementById("popupOverlay").style.display = "block";
+        }
+
+        function closePopup() {
+            // Hide the overlay and popup
+            document.getElementById("popupOverlay").style.display = "none";
+        }
+		function submitForm() {
+            // Show the popup
+            openPopup();
+            
+            // Clear the form fields after a short delay (you can adjust the delay as needed)
+            setTimeout(function() {
+                document.getElementById("form").reset();
+            }, 1); // 1000 milliseconds = 1 second
+        }
+    </script>
+
+	</form>
+</body>
+</html>
